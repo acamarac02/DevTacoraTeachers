@@ -1,0 +1,8 @@
+{
+    "label": "Módulo 5: Publicación",
+    "position": 5,
+    "link": {
+        "type": "generated-index",
+        "description": "Despliegue en GitHub Pages y automatización de actualizaciones mediante GitHub Actions."
+    }
+}
