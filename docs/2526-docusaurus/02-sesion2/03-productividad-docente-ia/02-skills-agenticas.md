@@ -66,7 +66,7 @@ Para que esta Skill "cobre vida", solo tienes que mencionarla en tu petición us
 
 :::tip[Invocación en el Chat]
 Cuando escribas tu petición a Antigravity, simplemente añade:
-> *"@skill-pmdm prepara el tema sobre el ciclo de vida de una Activity"*
+> *"Prepara el tema sobre el ciclo de vida de una Activity siguiendo las directrices de @skill-pmdm"*
 :::
 
 Al detectar la mención, el Agente cargará ese fichero en su memoria activa, garantizando que las respuestas sean pulcras, obedezcan tus guías de estilo y programen exactamente como tú quieres que aprendan tus alumnos.
