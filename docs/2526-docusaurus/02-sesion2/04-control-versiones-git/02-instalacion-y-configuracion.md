@@ -1,5 +1,5 @@
 ---
-title: "Instalación y Configuración"
+title: "Configuración de Git"
 sidebar_position: 2
 description: Guía paso a paso para instalar Git en tu equipo y configurarlo por primera vez.
 ---
@@ -33,14 +33,14 @@ sudo apt install git
 ```
 
 :::info[Verificar Instalación]
-Para confirmar que todo ha ido bien, abre la terminal integrada de Antigravity y ejecuta el comando `git --version`. Debería devolverte el número de versión exacta que acabas de instalar.
+Para confirmar que todo ha ido bien, ejecuta el comando `git --version` en tu terminal. Debería devolverte el número de versión exacta que acabas de instalar.
 :::
 
 ## Configuración de Identidad (Global)
 
-Antes de empezar a tocar el código de Docusaurus, Git necesita saber quién eres. Esto no tiene nada que ver con iniciar sesión (eso es de GitHub). Aquí simplemente estamos configurando la "firma" que Git estampará en cada versión que guardes. Esto es vital en departamentos de informática donde varios docentes tocan el mismo temario.
+Antes de empezar realizar un commit, Git necesita saber quién eres. Esto no tiene nada que ver con iniciar sesión (eso es de GitHub). Aquí simplemente estamos configurando la "firma" que Git estampará en cada versión que guardes.
 
-Abre la terminal integrada del IDE (en Antigravity puedes hacerlo desde el menú superior o arrastrando la pestaña inferior) y ejecuta **uno a uno** los siguientes comandos, sustituyendo los textos entre comillas por tus datos reales:
+Abre la terminal y ejecuta **uno a uno** los siguientes comandos, sustituyendo los textos entre comillas por tus datos reales:
 
 ```bash
 git config --global user.name "Tu Nombre Real o Alias Docente"
