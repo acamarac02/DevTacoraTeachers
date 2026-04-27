@@ -1,6 +1,6 @@
 ---
 title: "Exportación Offline a PDF"
-sidebar_position: 5
+sidebar_position: 6
 description: "Generación de documentos PDF automatizados a partir del sitio web de Docusaurus apuntes."
 ---
 

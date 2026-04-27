@@ -1,6 +1,6 @@
 ---
 title: "Buscador Integrado"
-sidebar_position: 3
+sidebar_position: 4
 description: Guía paso a paso para añadir un motor de rastreo y sugerencias a tus apuntes utilizando Algolia DocSearch.
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Internacionalización (i18n)"
-sidebar_position: 2
+sidebar_position: 3
 description: "Configuración de Docusaurus para soportar múltiples idiomas en los apuntes."
 ---
 

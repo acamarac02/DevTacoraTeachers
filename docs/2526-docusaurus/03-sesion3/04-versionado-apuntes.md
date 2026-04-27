@@ -1,6 +1,6 @@
 ---
 title: "Versionado de Apuntes"
-sidebar_position: 4
+sidebar_position: 5
 description: "Estrategia para retener el histórico de apuntes de diferentes cursos académicos."
 ---
 

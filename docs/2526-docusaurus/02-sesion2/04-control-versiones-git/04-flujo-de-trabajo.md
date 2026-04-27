@@ -144,3 +144,7 @@ En tu trabajo del día a día redactando, el flujo habitual que repetirás en bu
 2. Empaquetas los cambios en el Staging (`git add .`).
 3. Generas la foto en tu historial para registrar tu avance (`git commit -m "Explicación breve"`).
 4. Sincronizas con GitHub para asegurarlo en la nube (`git push` / botón *Sync Changes*).
+
+:::info[Trabajo avanzado con Ramas]
+A medida que domines la herramienta, lo ideal en entornos profesionales es trabajar utilizando **Ramas (*Branches*)**. Esto te permite crear "realidades alternativas" separadas de tu temario donde puedes experimentar de forma segura sin riesgo de introducir cambios destructivos o romper la rama oficial (`main`). No obstante, debido a su mayor complejidad organizativa (fusiones, *merge conflicts*, etc.), el trabajo con ramas queda fuera del alcance y objetivos formativos de este curso.
+:::
