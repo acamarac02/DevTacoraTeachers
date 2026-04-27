@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdev_tacora_teachers=self.webpackChunkdev_tacora_teachers||[]).push([["3220"],{1912(e){e.exports=JSON.parse('{"blogBasePath":"/DevTacoraTeachers/blog","blogTitle":"Blog","authorsListPath":"/DevTacoraTeachers/blog/authors"}')}}]);

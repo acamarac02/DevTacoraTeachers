@@ -1,9 +1,0 @@
-{
-    "label": "Sesión 1: Arquitectura y Entorno",
-    "position": 1,
-    "link": {
-        "type": "generated-index",
-        "slug": "/docusaurus",
-        "description": "Fundamentos del flujo Docs-as-Code, configuración del entorno Docusaurus y primeros pasos con Markdown."
-    }
-}

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdev_tacora_teachers=self.webpackChunkdev_tacora_teachers||[]).push([["9969"],{3886(e){e.exports=JSON.parse('{"metadata":{"permalink":"/DevTacoraTeachers/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":4,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);

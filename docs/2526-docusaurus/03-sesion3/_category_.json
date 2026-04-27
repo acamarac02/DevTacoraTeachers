@@ -1,8 +1,0 @@
-{
-    "label": "Sesión 3: Despliegue, Búsqueda y Escalabilidad",
-    "position": 3,
-    "link": {
-        "type": "generated-index",
-        "description": "En esta tercera y última sesión, daremos el paso definitivo hacia la producción. Aprenderemos a automatizar la publicación de nuestros apuntes mediante GitHub Pages, prepararemos nuestra web para múltiples idiomas (internacionalización), integraremos el potente motor de búsqueda Algolia DocSearch, gestionaremos las diferentes versiones académicas por años y terminaremos posibilitando la generación de documentos PDF offline."
-    }
-}
