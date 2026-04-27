@@ -50,6 +50,15 @@ Debemos configurar nuestro repositorio en GitHub para indicarle que el origen vi
 
 Cuando certifiques que tus apuntes están listos para ser consumidos por el aula y quieras publicarlos, el proceso consiste exclusivamente en ejecutar la orden de publicación local.
 
+:::warning[Primer despliegue]
+Si es la **primera vez** que vas a publicar el sitio, deberás crear la rama `gh-pages` en GitHub. Para ello, escribe este comando por única vez en la consola de tu editor:
+
+```bash
+git push origin HEAD:gh-pages
+```
+Una vez empujado el esqueleto básico en GitHub, el flujo normal ya consiste en ejecutar el comando de despliegue.
+:::
+
 Abre la terminal integrada en tu editor y lanza el proceso estandarizado de compilación. Por defecto, Docusaurus detectará inteligentemente las credenciales de GitHub que ya usamos a diario en nuestro flujo de trabajo:
 
 ```bash
@@ -64,3 +73,35 @@ En cuestión de un minuto, esta instrucción unificada realizará el siguiente l
 2. Traspasará ese resultado minificado en la rama aislada `gh-pages`.
 3. Hará el empuje (*push*) automático de esa pequeña rama sobre el repositorio remoto público de GitHub, desencadenando la exposición inmediata del temario web. 
 4. Garantizará que la rama esencial de trabajo (`main`) se mantenga inmaculada como simple código fuente, a salvo de basura de compilación.
+
+## Flujo Normal de Trabajo (Con Despliegue)
+
+Para tu día a día como docente, el ciclo de trabajo de los apuntes queda resumido y estandarizado en el siguiente proceso lógico cada vez que prepares una nueva clase:
+
+1. Modificas o creas los archivos `.md`.
+2. Haces seguimiento de los cambios en Git: `git add .`
+3. Confirmas el hito de tu nuevo trabajo: `git commit -m "Terminada la unidad 4"`
+4. Subes tu código fuente original al repositorio como salvaguarda: `git push`
+5. Si además evalúas que este material ya debe ser visible en internet por tus alumnos, ejecutas el empaquetado: `npm run deploy`.
+
+Visualmente de forma arquitectónica, el flujo de interacciones se diagrama de este modo:
+
+```mermaid
+sequenceDiagram
+    participant P as Profesor
+    participant D as Carpeta Docusaurus
+    participant M as Repositorio (Rama main)
+    participant GP as GitHub Pages (Rama gh-pages)
+
+    P->>D: Escribe formato Markdown / MDX
+    P->>M: git add .
+    P->>M: git commit -m "Añade apuntes"
+    P->>M: git push
+    Note over P,M: Código fuente a salvo en la nube
+    
+    opt Publicar material a la clase
+        P->>D: npm run deploy
+        D->>GP: Compilación de la web automatizada 
+        D->>GP: Push automático a la rama gh-pages
+    end
+```

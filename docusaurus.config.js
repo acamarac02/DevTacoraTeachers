@@ -43,7 +43,17 @@ const config = {
   // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'es',
-    locales: ['es'],
+    locales: ['es', 'en'],
+    localeConfigs: {
+      es: {
+        label: 'Castellano',
+        direction: 'ltr',
+      },
+      en: {
+        label: 'English',
+        direction: 'ltr',
+      },
+    },
   },
 
   plugins: [require('./plugins/tailwind-plugin.cjs')],
@@ -114,6 +124,10 @@ const config = {
             sidebarId: 'docusaurus_2526_sidebar',
             position: 'left',
             label: 'Docusaurus',
+          },
+          {
+            type: 'localeDropdown',
+            position: 'right',
           },
           {
             href: 'https://github.com/facebook/docusaurus',
