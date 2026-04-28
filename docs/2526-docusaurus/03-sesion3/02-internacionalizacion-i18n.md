@@ -95,3 +95,30 @@ npm run start -- --locale en
 ```
 
 Con este comando, NodeJS asume que debe obviar de momento tus archivos originales de `/docs` y pasa a pintar la pantalla leyendo exclusivamente los apuntes de tu carpeta `/i18n/en`.
+
+## 📝 Actividad: Multiidioma en producción
+
+Vamos a llevar la internacionalización al mundo real. Sigue estos pasos para traducir parte de tu curso y desplegarlo en internet:
+
+1.  **Configura el motor**: Abre tu `docusaurus.config.js` y asegúrate de haber declarado los idiomas `es` y `en` en el bloque `i18n`, y de haber añadido el componente `type: 'localeDropdown'` en tu barra de navegación (navbar).
+2.  **Crea una traducción**: Toma el archivo de prueba que creaste en la actividad anterior (o cualquier otro) y realiza su réplica exacta dentro de la carpeta `i18n/en/docusaurus-plugin-content-docs/current/03-sesion3/`.
+3.  **Traduce el texto**: Abre esa copia y traduce el contenido al inglés. Recuerda **no cambiar** el nombre del archivo.
+4.  **Verificación local**: Detén el servidor y lánzalo de nuevo forzando el idioma inglés:
+
+    ```bash
+    npm run start -- --locale en
+    ```
+    Navega hasta los apuntes de la sesión 3 y comprueba que tu archivo aparece ahora en inglés.
+5.  **Despliegue y comprobación**: Una vez verificado, sube los cambios a tu repositorio y despliega la web:
+    ```bash
+    git add .
+    git commit -m "Añadida traducción al inglés de la sesión 3"
+    git push
+    npm run deploy
+    ```
+6.  **Prueba el selector**: Entra en tu URL pública de GitHub Pages. Ahora, por fin, el botón pulsable de la barra superior debería funcionar. Cambia entre "Castellano" e "English" y observa cómo Docusaurus salta entre los contenidos de forma instantánea.
+
+:::tip[¿Todo en orden?]
+Si al cambiar a inglés ves que alguna página da error, revisa que hayas respetado exactamente la misma estructura de carpetas y el mismo nombre de archivo en `docs/` y en `i18n/en/...`. ¡La precisión es la clave!
+:::
+

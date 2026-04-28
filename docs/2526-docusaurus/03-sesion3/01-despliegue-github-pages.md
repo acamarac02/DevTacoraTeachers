@@ -105,3 +105,25 @@ sequenceDiagram
         D->>GP: Push automático a la rama gh-pages
     end
 ```
+
+## 📝 Actividad: Tu primer despliegue real
+
+Llegó el momento de "romper el huevo" y poner tus apuntes por primera vez en internet. Sigue estos pasos para sincronizar tu trabajo local con tu servidor público en GitHub Pages:
+
+1.  **Genera contenido nuevo**: Abre cualquiera de tus ficheros `.md` y añade un par de líneas o una imagen. Crea también un fichero nuevo dentro de la carpeta `03-sesion3` llamado `prueba-despliegue.md` con un pequeño saludo.
+2.  **Asegura el código fuente**: Registra tus cambios en Git y súbelos a tu repositorio central (`main`) para no perder el trabajo:
+    ```bash
+    git add .
+    git commit -m "Añadiendo contenido de prueba para despliegue"
+    git push
+    ```
+3.  **Lanza el despliegue**: Ejecuta la orden mágica para que Docusaurus convierta tu código en una web real:
+    ```bash
+    npm run deploy
+    ```
+4.  **Verificación Final**: Abre tu navegador y entra en la URL de tu proyecto (ej: `https://TU-USUARIO.github.io/NOMBRE-DEL-REPO/`). Comprueba que el nuevo fichero que creaste aparece en el menú lateral y que los cambios son visibles para cualquiera.
+
+:::tip[¡Felicidades!]
+Si has llegado hasta aquí y ves tus cambios en la web, ya eres un "Docente Docs-as-Code" oficial. Tu material ya no vive solo en tu ordenador, sino que está disponible para todo el mundo (y para tus alumnos) desde cualquier rastro de internet.
+:::
+

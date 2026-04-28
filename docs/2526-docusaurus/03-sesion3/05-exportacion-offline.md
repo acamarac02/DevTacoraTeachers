@@ -41,7 +41,22 @@ Cuando el proceso finalice (pudiendo tardar algo de tiempo si el módulo de apun
 Estará compuesto por todas y cada una de tus secciones sin saltos visuales ni rupturas en los menús, ideal para ser distribuido a tus alumnos en Moodle.
 
 :::tip[Tip extra: La impresión instantánea]
-Hay un detalle que salvará la vida al 90% de vuestros estudiantes: Si lo único que necesitan es imprimir **un solo tema** concreto de esos apuntes para repasar en el autobús, infórmales de que pueden pulsar **`Ctrl + P`** (o Archivo -> Imprimir) directamente desde cualquier navegador web moderno (Chrome, Edge, Firefox...). 
-
 Docusaurus porta de fábrica un código de diseño oculto "solo para impresión" que hace que al imprimir desaparezcan mágicamente los menús laterales o el buscador superior, generando un folio blanco puramente de notas y texto para el alumno.
 :::
+
+## 📝 Actividad: El dossier de apuntes
+
+La prueba de fuego de cualquier material educativo es su portabilidad. Vamos a generar una versión física de tus nuevos apuntes:
+
+1.  **Enciende el servidor**: Asegúrate de que tu web está corriendo en local (`npm run start`).
+2.  **Genera el PDF**: Abre una nueva terminal y lanza el comando de rastreo para el directorio que prefieras de tus apuntes:
+    ```bash
+    npx docs-to-pdf docusaurus --initialDocURLs="http://localhost:3000/DevTacoraTeachers/docs/category/sesi%C3%B3n-3-despliegue-b%C3%BAsqueda-y-escalabilidad"
+    ```
+3.  **Inspección técnica**: Busca el archivo PDF generado en la raíz de tu proyecto. Ábrelo y comprueba que se han respetado los estilos, las tablas y los bloques de código.
+4.  **Entrega offline**: ¡Listo! Ya tienes un dossier profesional que puedes subir directamente a Moodle para que tus alumnos lo descarguen y estudien sin necesidad de conexión.
+
+:::info[¡Sesión 3 Completada!]
+Has superado todos los desafíos técnicos de esta sesión: desde el despliegue en la nube hasta la exportación física, pasando por la internacionalización y el versionado. ¡Enhorabuena!
+:::
+

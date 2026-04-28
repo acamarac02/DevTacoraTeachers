@@ -95,3 +95,17 @@ Para invertir la mentalidad y asegurar que tu curso en vigor es el correcto, añ
 :::warning[Docentes con múltiples asignaturas]
 El comando básico automático le saca una fotografía a la carpeta `docs/` **entera**. Si almacenas apuntes de varias asignaturas distintas (ej: Docusaurus y PMDM) y lanzas el comando, versionarás todas simultáneamente en el mismo bloque para un curso concreto. Si quieres poder versionar primero PMDM y luego otra materia de forma independiente, investiga la técnica orientada al **"Multi-instance"** de la documentación oficial.
 :::
+
+## 📝 Actividad: Tu primer cambio de curso
+
+Para terminar de dominar el ciclo de vida de tus apuntes, vamos a simular el paso de un curso escolar a otro usando la **Estrategia 1 (Manual)**, que es la más común cuando gestionamos varias asignaturas.
+
+1.  **Congela el curso actual**: Ve a tu carpeta `docs/` y renombra la carpeta de una de tus asignaturas (ej: `2526-docusaurus/`) añadiéndole el prefijo de ocultación: `_2526-docusaurus/`.
+2.  **Prepara el curso nuevo**: Crea una nueva carpeta paralela llamada `2627-docusaurus/`. Dentro de ella, copia algún fichero de la carpeta antigua.
+3.  **Actualiza el puente (Menú)**: Ahora mismo, si entras en tu web, el botón del menú superior estará roto. Abre `docusaurus.config.js` y actualiza la ruta del botón para que apunte a la nueva carpeta.
+4.  **Verificación Final**: Reinicia tu servidor local (`npm run start`) y comprueba que al pulsar en el botón del menú ahora aterrizas directamente en el material del nuevo curso.
+
+:::tip[¡Misión cumplida!]
+Has aprendido a "jubilar" un curso completo y dar la bienvenida al siguiente sin perder tus archivos viejos. Esta es la base de un mantenimiento sostenible de apuntes a largo plazo.
+:::
+
