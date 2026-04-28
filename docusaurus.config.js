@@ -71,6 +71,16 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
+          // Descomentar si se quiere usar el versionado automático
+          lastVersion: 'current', // Convierte el curso actual en la versión por defecto
+          /*versions: {
+            current: {
+              banner: 'none', // Apaga el molesto aviso de la parte superior
+            },
+            '25-26': {
+              banner: 'unmaintained', // Enciende el aviso de "No mantenido"
+            },
+          },*/
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
           admonitions: {
@@ -125,6 +135,17 @@ const config = {
             position: 'left',
             label: 'Docusaurus',
           },
+          // Descomentar si se quiere usar el versionado automático
+          /*
+          {
+            type: 'docsVersionDropdown',
+            position: 'right',
+            versions: {
+              current: { label: 'Curso 26-27' },
+              '25-26': { label: 'Curso 25-26' },
+            },
+          },
+          */
           {
             type: 'localeDropdown',
             position: 'right',

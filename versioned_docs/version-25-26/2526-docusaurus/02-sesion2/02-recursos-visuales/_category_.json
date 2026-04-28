@@ -1,0 +1,8 @@
+{
+  "label": "Recursos Visuales",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Exploración exhaustiva en la generación de diagramas bajo el modelo Docs-as-Code utilizando el motor Mermaid integrado en Docusaurus."
+  }
+}

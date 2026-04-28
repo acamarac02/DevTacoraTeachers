@@ -6,56 +6,92 @@ description: "Estrategia para retener el histórico de apuntes de diferentes cur
 
 Llega el mes de junio, se acaba el curso académico y toca pensar en el siguiente. Muchos profesores borran cosas de Moodle, esconden temas o sobreescriben los apuntes para empezar a preparar el material del año que entra. ¿El problema? Si un alumno repetidor necesita consultar el temario exactamente como se impartió en su curso, ya no puede.
 
-Docusaurus tiene un sistema integrado de "versionado" (pensado originalmente para versiones de programas informáticos como v1.0, v2.0...) que nosotros podemos aprovechar perfectamente para guardar versiones por "Curso Académico" (ej: Curso 24/25).
+Para solucionar este salto generacional de temarios, proponemos dos grandes estrategias posibles usando Docusaurus: el método puramente artesanal por carpetas, o el método automatizado nativo del sistema.
 
-Al versionar, Docusaurus **congela** todo el temario actual, guardándolo intacto y haciéndolo accesible mediante un menú especial. Al mismo tiempo, te deja vía libre en tu carpeta principal (`docs/`) para que empieces a alterar y rehacer apuntes para los alumnos de septiembre sin afectar al histórico.
+## Estrategia 1: Versionado Manual por Carpetas
 
-## Cómo congelar tus apuntes actuales
+Esta es la táctica más sencilla y natural si manejamos varias asignaturas a la vez y nos gusta dosificar la información a ritmo de clase.
 
-Es algo que normalmente harás solo una vez al año, al finalizar las clases y cuando el material esté asentado.
+Consiste en usar el nombre de nuestras carpetas principales para mantener cada año académico visualmente separado, ocultando carpetas pasadas apoyándonos en el gestor de ficheros. Por ejemplo, supongamos que impartías PMDM en la carpeta `2526-pmdm/`. Cuando llegue septiembre del próximo curso harás lo siguiente:
 
-Para crear la "fotografía" o copia estática del curso que acaba, abre la terminal en tu proyecto y ejecuta este sencillo comando, sustituyendo `24-25` por el nombre real de tu curso escolar:
+1. **Ocultar lo viejo:** Modificas el nombre de tu vieja carpeta `2526-pmdm/` para que Docusaurus la ignore, simplemente añadiéndole una barra baja delante: `_2526-pmdm/`. Así desaparece de la vista pública de los nuevos alumnos (pero ojo, **¡con este método los repetidores pierden su histórico!**).
+2. **Crear lo nuevo:** Te creas una carpeta vacía llamada `2627-pmdm/`.
+3. **Migración progresiva:** Según vayan pasando las semanas y vayas impartiendo los temas en clase, abres tu carpeta antigua oculta (`_2526-pmdm/`) y vas copiando poco a poco los archivos hacia tu nueva versión visible `2627-pmdm/`, aprovechando para reescribirlos o mejorarlos para la nueva promoción antes de que los vean.
+
+Esta forma de trabajar manual te da un control asombroso y evita de raíz que los alumnos de primero vean de golpe los temas avanzados que vas a modificar más adelante en el trimestre.
+
+*Ejemplo visual de cómo se vería tu estructura interna:*
+```text
+raíz-del-proyecto/
+ └── docs/ 
+     ├── _2526-pmdm/          <-- (Carpeta oculta del histórico pasado. Docusaurus la ignora)
+     │   └── apuntes viejos... 
+     │
+     └── 2627-pmdm/           <-- (Nueva carpeta principal 100% visible para los alumnos actuales)
+         └── 01-introduccion.md 
+```
+
+:::warning[¡Acuérdate del menú superior!]
+Si usas esta técnica y te creas una nueva carpeta maestro `2627-pmdm/`, los menús superiores de tu página web seguirán rotos intentando apuntar a la vieja. 
+
+Tienes que abrir tu `docusaurus.config.js` y editar el botón de la asignatura en `themeConfig > navbar > items` para que su enlace o `to` redirija correctamente hacia `/docs/2627-pmdm/...`.
+:::
+
+## Estrategia 2: Versionado Automático Global
+
+Docusaurus tiene un sistema nativo integrado de "versionado" (pensado originalmente para ir guardando versiones de programas informáticos como v1.0, v2.0...) que nosotros podemos aprovechar perfectamente para guardar nuestro histórico de "Cursos Académicos" sin romper manuales antiguos.
+
+Al usar este método, Docusaurus **congela** todo tu temario actual de golpe, guardándolo intacto como archivo histórico para los alumnos. Al mismo tiempo, te deja vía libre en tu carpeta base (`docs/`) para que rehagas apuntes para el nuevo curso.
+
+### Cómo congelar tus apuntes actuales
+
+Es algo que normalmente harás solo una vez al año, en junio. Para crear esa copia estática irrompible del curso que acabas, abre la terminal y ejecuta este comando, sustituyendo `24-25` por tu curso escolar:
 
 ```bash
 npm run docusaurus docs:version 24-25
 ```
 
-### ¿Qué hace exactamente este comando?
-
 Cuando lo lanzas, el motor de Docusaurus hace todo el trabajo oscuro por ti:
-1. Crea una carpeta nueva en tu ordenador llamada `versioned_docs/version-24-25/`.
-2. Clona todo el contenido exacto que tenías hoy en tu carpeta `docs/` y se lo lleva a esa nueva ruta blindada.
-3. El material original que tenías en `docs/` se queda donde está, pero a partir de ahora Docusaurus lo tratará como el *"Borrador del futuro"*. 
+1. Crea una carpeta local de archivo llamada `versioned_docs/version-24-25/`.
+2. Clona enterita la carpeta `docs/` que usabas como temario y se la lleva a esa nueva ruta blindada.
+3. El material original central se queda vacío a nivel visible, pero a partir de este instante, todo lo modificado en `docs/` lo tratará como el temario para la **nueva promoción del año que viene**.
 
-A partir de hoy, cualquier cambio en `docs/` solo lo verán los alumnos de la próxima promoción.
+### Añade el menú temporal
 
-## Añade el botón temporal al menú
-
-Para que los alumnos de años anteriores puedan saltar a su curso antiguo libremente, tenemos que decirle a nuestra web que dibuje un menú seleccionador de cursos.
-
-Abre tu amado archivo de centro de mandos `docusaurus.config.js` y busca el bloque que venimos usando en estos tutoriales: `themeConfig > navbar > items`. Tienes que inyectar el componente dinámico `docsVersionDropdown`:
+Para que el alumno (especialmente los repetidores o los de convocatoria extraordinaria) puedan revisar sus temarios congelados, tienes que habilitar el seleccionador desplegable. Configúralo en la ruta `themeConfig > navbar > items` de tu config:
 
 ```javascript title="docusaurus.config.js"
         items: [
-          // ... tus otros botones como el de idiomas ...
           {
             type: 'docsVersionDropdown',
-            position: 'left', // Lo colocamos a la izquierda
+            position: 'left',
           },
         ],
 ```
 
-Con esto, nuestra interfaz web exhibirá una cajita donde los estudiantes podrán elegir en qué año académico matricular su visión de los apuntes.
+### Evitar el cartel de "Versión no publicada"
 
-## El ciclo de vida de tu temario
+Por pura inercia en la mentalidad informática, Docusaurus asume que la versión que has congelado es tu versión final maestra, y que lo que guardas en tu carpeta original `docs/` es un simple borrador. Por eso, mostrará por sistema un feo cartel (*banner*) amarillo avisando al alumno de que el temario de "este año" es falso e invitándole a ir al del año pasado.
 
-Para sacarle el máximo partido, mentalízate sobre cómo trabajar con ambas carpetas durante el año lectivo:
+Para invertir la mentalidad y asegurar que tu curso en vigor es el correcto, añade este bloque a la zona de plugins `presets` de tu `docusaurus.config.js`:
 
-- **La carpeta `versioned_docs/`**: Trátala como un archivo muerto. ¡Ahí no se entra a trabajar día a día! Es un cajón histórico congelado que solo sirve de consulta.
-- **Tu carpeta original `docs/`**: Sigue siendo tu lugar de diseño central. Aquí es donde reescribes capítulos, amplías resúmenes o borras cosas que al final eran irrelevantes, construyendo pasito a paso el contenido del curso venidero.
+```javascript title="docusaurus.config.js"
+  presets: [
+    [
+      'classic',
+      ({
+        docs: {
+          sidebarPath: './sidebars.js',
+          
+          // --- AÑADE ESTE ÚNICO BLOQUE ---
+          lastVersion: 'current', // Exige que la carpeta principal en vigor sea la primera
+          versions: {
+            current: { banner: 'none' }, // Apaga la advertencia de "No publicado" a tus nuevos alumnos
+            '24-25': { banner: 'unmaintained' }, // Enciende el aviso a quienes miren el histórico
+          },
+          // -------------------------------
+```
 
 :::warning[Docentes con múltiples asignaturas]
-El comando básico de versionado le saca una "fotografía" a la carpeta `docs/` **entera**. Si almacenas ahí dentro los apuntes de varias asignaturas distintas (ej: Bases de Datos y Programación) y lanzas el comando, versionarás todas simultáneamente de golpe en un mismo bloque.
-
-Si impartes asignaturas que quieres mantener o versionar de un año a otro de forma **totalmente independiente**, te recomendamos investigar la técnica **"Multi-instance"** (Múltiples instancias) en la documentación oficial de Docusaurus. Esto te permite separar cada asignatura en su propia ruta, logrando que el selector de cursos sea distinto y exclusivo para cada módulo.
+El comando básico automático le saca una fotografía a la carpeta `docs/` **entera**. Si almacenas apuntes de varias asignaturas distintas (ej: Docusaurus y PMDM) y lanzas el comando, versionarás todas simultáneamente en el mismo bloque para un curso concreto. Si quieres poder versionar primero PMDM y luego otra materia de forma independiente, investiga la técnica orientada al **"Multi-instance"** de la documentación oficial.
 :::

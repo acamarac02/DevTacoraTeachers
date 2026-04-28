@@ -1,0 +1,8 @@
+{
+  "label": "Sesión 2: Herramientas Avanzadas",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "En esta segunda sesión profundizaremos en Docusaurus: aprenderemos a enriquecer los apuntes con Markdown Avanzado (pestañas, bloques de código enriquecido y fórmulas matemáticas), integraremos recursos visuales como diagramas dinámicos (Mermaid), configuraremos un buscador local y puliremos la página principal (Landing Page). Finalizaremos revolucionando nuestro trabajo docente usando metodologías de IA con Antigravity y desplegando el curso de forma pública en internet."
+  }
+}

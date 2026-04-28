@@ -1,0 +1,8 @@
+{
+  "label": "Markdown Avanzado y MDX",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Exploración completa sobre la integración de componentes MDX y generación de diagramas (Mermaid) bajo el paradigma Docs-as-Code."
+  }
+}
