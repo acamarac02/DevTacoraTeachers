@@ -84,21 +84,14 @@ If you want to translate built-in program details (such as the "Next page", "Nex
 
 ## Viewing the Result Locally
 
-If you are working locally and run your usual `npm run start` command, you will simply see your base website (`es`).
+If you are working on your computer and run your usual `npm run start` command, you will notice an interesting detail: **the language dropdown will give a "Page not found" (404) error if you try to click it**.
 
-If you want to audit and test how international students will see the syllabus, you must force the server to boot up pointing to the newly created folder, launching it strictly like this:
+Don't worry, this is normal behavior and you haven't broken anything. For performance reasons, the local test server is only capable of rendering and displaying **one language at a time**. Only when you finally publish your notes using the deployment command (`npm run deploy`) will the button work perfectly, weaving both views together.
+
+Therefore, if you want to locally audit how your syllabus written in English turned out, you must stop the console (`Ctrl+C`) and explicitly force it to boot in bilingual mode by running this command in your terminal:
 
 ```bash
 npm run start -- --locale en
 ```
 
-With this instruction, NodeJS bypasses your original Spanish files from `/docs` and exclusively renders your files from the `/i18n/en` section.
-
-## Publishing to Production
-
-The main advantage of this setup is when you want to publish this material for the class (using the deployment command we used previously). Docusaurus will detect both languages and, without any extra effort from the teachers, will silently do the following:
-
-1. It will build your traditional Spanish website directly at `yourwebsite.com/`.
-2. It will build an attached, parallel website, complete with its own translated navigation, accessible from a subdirectory `yourwebsite.com/en/`.
-
-The menu button we added at the beginning is what will link both final builds together.
+With this command, NodeJS assumes it should temporarily ignore your original files in `/docs` and proceed to render the screen reading exclusively the notes from your `/i18n/en` folder.

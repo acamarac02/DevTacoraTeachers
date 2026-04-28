@@ -84,21 +84,14 @@ Si quieres traducir detalles propios del programa (como los mensajes de "Pasar a
 
 ## Ver el Resultado en Local
 
-Si estás trabajando en local y ejecutas tu habitual comando `npm run start`, simplemente verás tu web base (`es`). 
+Si estás trabajando en tu ordenador y ejecutas tu comando habitual `npm run start`, comprobarás un detalle llamativo: **el desplegable de idiomas dará un error de "Página no encontrada" (404) si intentas pulsarlo**. 
 
-Si quieres auditar y probar cómo verán los alumnos extranjeros el temario, tienes que forzar al servidor a arrancar apuntando a la carpeta recién creada, lanzándolo de este modo estricto:
+Tranquilidad, esto es el comportamiento normal y no has roto nada. Por motivos de rendimiento, el servidor local de pruebas solo es capaz de renderizar y mostrar **un idioma a la vez**. Solo cuando publiques tus apuntes definitivamente usando el comando de despliegue (`npm run deploy`) el botón funcionará perfectamente al trenzar ambas vistas.
+
+Por lo tanto, si quieres auditar a nivel local cómo ha quedado tu temario escrito en inglés, tienes que detener la consola (`Ctrl+C`) y forzar su arranque explícitamente en modo bilingüe lanzando esta orden en tu terminal:
 
 ```bash
 npm run start -- --locale en
 ```
 
-Con esta instrucción NodeJS obvia tus archivos españoles originales de `/docs` y renderiza exclusivamente tus archivos de la sección `/i18n/en`.
-
-## Publicarlo a Producción
-
-La principal ventaja del entorno es cuando queráis publicar este material para el aula (mediante el comando de despliegue que usamos anteriormente). Docusaurus detectará ambos idiomas y sin que el profesorado invierta tiempo hará esto por debajo:
-
-1. Compilará directamente tu web tradicional en español en `tuweb.com/`.
-2. Generará un sitio web paralelo anexo, íntegro con su navegación propia y traducida, accesible desde un subdirectorio `tuweb.com/en/`. 
-
-El botón del menú que pusimos al comienzo es el que unirá ambas compilaciones finales.
+Con este comando, NodeJS asume que debe obviar de momento tus archivos originales de `/docs` y pasa a pintar la pantalla leyendo exclusivamente los apuntes de tu carpeta `/i18n/en`.
