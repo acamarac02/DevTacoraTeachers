@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdev_tacora_teachers=self.webpackChunkdev_tacora_teachers||[]).push([["1668"],{86569(e,r,a){a.r(r),a.d(r,{default:()=>n});var s=a(74848);a(96540);var c=a(34164),t=a(34308),u=a(88287),d=a(22831),h=a(56525);function n(e){return(0,s.jsx)(t.e3,{className:(0,c.A)(u.G.wrapper.docsPages),children:(0,s.jsx)(h.A,{children:(0,d.v)(e.route.routes)})})}}}]);

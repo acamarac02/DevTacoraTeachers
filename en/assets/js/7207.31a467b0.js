@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdev_tacora_teachers=self.webpackChunkdev_tacora_teachers||[]).push([["7207"],{31226(e,a,c){c.d(a,{createInfoServices:()=>r.v});var r=c(73954);c(93345)}}]);
