@@ -146,15 +146,16 @@ const config = {
             },
           },
           */
-          {
+          // Descomentar si se quiere usar el desplegable de idiomas
+          /*{
             type: 'localeDropdown',
             position: 'right',
-          },
-          {
+          },*/
+          /*{
             href: 'https://github.com/facebook/docusaurus',
             label: 'GitHub',
             position: 'right',
-          },
+          },*/
         ],
       },
       footer: {

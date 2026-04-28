@@ -179,21 +179,11 @@ Este es el lugar donde definiremos la identidad visual de nuestro curso. Si abre
 2.  **`[data-theme='dark']`**: Sobrescribe esas variables cuando el usuario activa el modo oscuro.
 3.  **Variables `--ifm-color-primary`**: Infima utiliza estas variables para pintar automáticamente los botones, los menús laterales activos y los enlaces. Si cambias el color en `:root`, cambiará en toda la web de forma coherente.
 
+
 :::tip[Generador de Colores]
 Docusaurus ofrece una [herramienta online](https://docusaurus.io/docs/styling-layout#styling-your-site-with-infima) donde puedes elegir un color principal y te genera automáticamente todos los tonos (dark, darker, light, etc.) para que solo tengas que copiar y pegar en tu archivo `custom.css`. 
 
 También puedes utilizar páginas como [Coolors](https://coolors.co/) para encontrar paletas o colores que te gusten.
 :::
-
-
-## Actividad: Personaliza tu página
-Ahora que conoces el archivo `docusaurus.config.js`, ¡es hora de practicar!
-
-1. Cambia el **título** y el **tagline** del sitio.
-2. Personaliza la **landing page**, puedes modificar los textos y las imágenes que aparecen en ella.
-3. Modifica el **footer**.
-4. Cambiar los **colores** de tu web.
-
-De momento no te preocupes por la barra de navegación, ya que la configuraremos más adelante.
 
 

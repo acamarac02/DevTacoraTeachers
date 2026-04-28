@@ -152,43 +152,6 @@ Para evitar que Docusaurus genere y haga público ese archivo en el menú web, b
 
 Cualquier documento `.md` o directorio que comience por el guion bajo será ignorado por el menú de navegación de Docusaurus de forma transparente. Podrás seguir trabajando tus apuntes a tu ritmo desde el editor y, cuando decidas publicarlos para la clase, simplemente renómbralos borrando ese guion bajo inicial.
 
-:::danger[Repositorios Públicos e Información Sensible]
+:::tip[Repositorios Públicos e Información Sensible]
 Ocultar un fichero con el prefijo `_` **solo evita que aparezca en el menú de la web final de Docusaurus**. Si el código base del proyecto está almacenado en un repositorio público (GitHub o GitLab), cualquier alumno que entre al historial del repositorio podrá buscar, abrir y leer el archivo original en Markdown. Por tanto, nunca debes guardar en este sistema futuros exámenes, pruebas de evaluación ni información sensible.
 :::
-
----
-
-## Actividad final
-
-Hemos llegado al final de la primera sesión. Tu objetivo ahora es crear el esqueleto de tu Docusaurus adaptado a tus clases reales. Por ejemplo, si impartes Programación y Bases de Datos, deberás hacer lo siguiente:
-
-1. **Estructura las Carpetas**: Crea las carpetas principales y al menos las dos primeras unidades de trabajo. Tu directorio `docs/` debería quedar parecido a esto:
-   ```text
-   📁 docs/
-    ├── 📁 2526-programacion/
-    │    ├── 📄 index.md
-    │    ├── 📄 _category_.json
-    │    ├── 📁 01-introduccion/
-    │    │    ├── 📄 _category_.json
-    │    │    └── 📄 01-introduccion.md
-    │    └── 📁 02-estructuras-control/
-    └── 📁 2526-bbdd/
-         ├── 📄 index.md
-         ├── 📄 _category_.json
-         ├── 📁 01-bases-relacionales/
-         └── 📁 02-consultas-sql/
-   ```
-
-2. **Configura el Navbar**: Entra en `docusaurus.config.js` y añade un enlace en el menú superior para acceder rápidamente a cada uno de tus módulos.
-
-3. **Prepara los Menús Laterales**: Edita `sidebars.js` para que cada módulo tenga su propio índice independiente.
-
-4. **Práctica de Markdown**: Entra en el `index.md` de uno de tus módulos y redacta un pequeño resumen de la Programación Didáctica (PD). Para practicar mejor el lenguaje, debes incluir obligatoriamente:
-   - Un bloque de *Frontmatter* válido.
-   - Varios niveles de título (`#`, `##`).
-   - Una lista para los criterios de evaluación o herramientas a utilizar.
-   - Algún texto en negrita o cursiva.
-   - Una admonición (`:::info` o `:::tip`) para destacar algún aviso importante para los alumnos.
-   - Un bloque de código con el lenguaje que estés utilizando.
-   - Un enlace a una página externa.
-   - Una imagen.
