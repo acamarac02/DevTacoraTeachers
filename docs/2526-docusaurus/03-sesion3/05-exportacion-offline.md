@@ -8,64 +8,40 @@ Tarde o temprano, ya sea el primer día de clase o en vísperas del examen, un a
 
 Aunque nuestra filosofía creando este ecosistema web (*Docs-as-Code*) es que el temario sea una experiencia interactiva (con vídeos, buscador y código fácil de copiar), hay situaciones donde generar un archivo físico tradicional es necesario.
 
-Para lograrlo nos apoyaremos en complementos (*plugins*) creados por la comunidad, dado que el código puro de Docusaurus no incluye un botón de fabrica para "Exportar a PDF". 
+Para lograrlo nos apoyaremos en complementos (*plugins*) y simuladores de navegador creados por la comunidad, dado que el código puro de Docusaurus no incluye un botón de fábrica para "Exportar a PDF". 
 
 :::info[El ecosistema de la Comunidad]
-Igual que añadiremos el generador de PDF, Docusaurus cuenta con un enorme catálogo de herramientas gratuitas creadas por otros desarrolladores educativos de todo el mundo. Puedes explorar la lista completa de extensiones avaladas en su página oficial de [Soporte y Comunidad](https://docusaurus.io/community/support).
+Igual que añadiremos el generador de PDF, Docusaurus cuenta con un enorme catálogo de herramientas gratuitas creadas por otros desarrolladores de todo el mundo. Puedes explorar la lista completa de extensiones avaladas en su página oficial de [Soporte y Comunidad](https://docusaurus.io/community/support).
 :::
 
-## Instalar el generador de PDFs
+## Ejecutar el generador automático
 
-El método más robusto suele ser utilizar herramientas que imitan el comportamiento de un navegador: el programa entra en tu web automáticamente, va abriendo cada tema del menú izquierdo de arriba a abajo y va "guardando página como PDF", fusionándolo todo en un solo libro final. 
+El método más robusto para convertir tu curso en un libro es utilizar un "rastreador web". Básicamente, un mini programa oculto entra en tu página local, clica automáticamente en "Siguiente Tema" y va guardando capturas en PDF de cada apartado hasta fusionarlas en un documento maestro.
 
-Vamos a usar uno de los paquetes más funcionales y clásicos del entorno NodeJS. Abre la terminal en la carpeta principal de tu proyecto e instala la librería con este comando:
+Vamos a aprovechar el paquete: **[`docs-to-pdf` de Jean Humann](https://github.com/jean-humann/docs-to-pdf)**. Su gran ventaja es que no necesita instalarse internamente como plugin en nuestro archivo `docusaurus.config.js`, sino que se ejecuta temporalmente en la terminal evitando romper configuraciones.
 
-```bash
-npm install docusaurus-plugin-to-pdf
-```
-*(Nota de actualización: A medida que Docusaurus se actualiza de versión, surgen nuevos forks de este paquete, pero el comportamiento y la instalación en todos ellos es prácticamente idéntica).*
+Sigue estos **dos pasos principales**:
 
-## Inyectar la herramienta
+1. **Asegúrate de que la web esté encendida:** 
+   El rastreador robot necesita poder "leer" tu web en vivo. Mantén tu servidor arrancado con normalidad (`npm run start`) para que la web cargue correctamente (por ejemplo, en `http://localhost:3000`).
 
-Una vez descargado, como es habitual, debemos obligar a nuestra página a reconocerlo y utilizarlo. Abre tu archivo `docusaurus.config.js` y busca el apartado `plugins`. Si este bloque no existe aún en tu código (a veces viene vacío u oculto), créalo sencillamente como una lista limpia justo por encima de los `presets`:
+2. **Abre otra consola y dispara el PDF:**
+   Una vez que sepas que la web está encendida, abre una **nueva pestaña** en tu terminal y escribe el siguiente comando `npx`. (Solo tienes que sustituir la URL larga por el link del apartado que quieras descargar, por ejemplo, la sesión 3 entera):
 
-```javascript title="docusaurus.config.js"
-  // ... resto de tu configuración inicial ...
-  
-  plugins: [
-    'docusaurus-plugin-to-pdf'
-  ],
-
-  // highlight-start
-  presets: [
-    [
-      'classic',
-  // highlight-end
-      // ...
-```
-
-## Extraer el archivo PDF
-
-El plugin no hace milagros al vuelo; necesita leer los archivos definitivos de la web. Por tanto, para evitar que la generación colapse, asegúrate de que tu servidor de prueba (`npm run start`) está cerrado.
-
-El **flujo de trabajo** siempre será el siguiente:
-
-1. **Compila la web al completo:** 
-   Ejecuta en consola `npm run build` para que Docusaurus genere los archivos finales estáticos de tu curso.
-2. **Dispara la extracción del PDF:**
-   Inmediatamente después del paso anterior, ejecuta el comando que nos proporcionó la herramienta que instalamos arriba, que suele construirse así:
    ```bash
-   npm run docusaurus export:pdf
+   npx docs-to-pdf docusaurus --initialDocURLs="http://localhost:3000/DevTacoraTeachers/docs/category/sesi%C3%B3n-3-despliegue-b%C3%BAsqueda-y-escalabilidad"
    ```
+
+Puedes descargar el ejemplo generado en esta sesión desde el siguiente enlace: **[Descargar PDF de la Sesión 3](/descargas/sesion3.pdf)**.
 
 ### ¿Dónde encuentro el archivo?
 
-Cuando la terminal finalice el proceso (advertimos que puede rondar más del minuto dependiendo de la cantidad de temas e imágenes de tu módulo), aparecerá una nueva carpeta en tu panel izquierdo llamada `pdf/` (o bien el archivo PDF directamente dentro de la carpeta central `build/`, según la versión del plugin). 
+Cuando el proceso finalice (pudiendo tardar algo de tiempo si el módulo de apuntes es pesado), el sistema creará un archivo físico en PDF en la propia raíz de tu base de directorios (cerca de tu `package.json`).
 
-Ahí dentro aguardará tu temario unificado. Las páginas estarán fusionadas y ordenadas respetando a rajatabla la jerarquía de tu barra lateral, totalmente preparadas para subirse a la plataforma Moodle/Classroom del instituto, o enviarse para encuadernar.
+Estará compuesto por todas y cada una de tus secciones sin saltos visuales ni rupturas en los menús, ideal para ser distribuido a tus alumnos en Moodle.
 
-:::info[Tip: La impresión instantánea del navegador]
-Hay un detalle que salvará la vida al 90% de vuestros estudiantes: Si lo único que necesitan es imprimir **un solo tema** concreto de esos apuntes para repasar en el autobús, diles que pulsen **`Ctrl + P`** (o Archivo -> Imprimir) directamente desde su navegador web (Chrome, Edge, Firefox...). 
+:::tip[Tip extra: La impresión instantánea]
+Hay un detalle que salvará la vida al 90% de vuestros estudiantes: Si lo único que necesitan es imprimir **un solo tema** concreto de esos apuntes para repasar en el autobús, infórmales de que pueden pulsar **`Ctrl + P`** (o Archivo -> Imprimir) directamente desde cualquier navegador web moderno (Chrome, Edge, Firefox...). 
 
-Docusaurus trae una configuración de estilo CSS "invisible" que se activa sola al imprimir: oculta instantáneamente los menús laterales, el buscador superior, el modo oscuro y los márgenes, arrojando como resultado folios A4 impecables sin necesidad de instalarles absolutamente nada.
+Docusaurus porta de fábrica un código de diseño oculto "solo para impresión" que hace que al imprimir desaparezcan mágicamente los menús laterales o el buscador superior, generando un folio blanco puramente de notas y texto para el alumno.
 :::
