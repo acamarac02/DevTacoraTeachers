@@ -56,7 +56,7 @@ const config = {
     },
   },
 
-  plugins: [require('./plugins/tailwind-plugin.cjs')],
+  plugins: [require('./plugins/tailwind-plugin.cjs'), 'docusaurus-lunr-search'],
 
   markdown: {
     mermaid: true,
