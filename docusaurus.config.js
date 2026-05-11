@@ -56,7 +56,12 @@ const config = {
     },
   },
 
-  plugins: [require('./plugins/tailwind-plugin.cjs'), 'docusaurus-lunr-search'],
+  plugins: [
+    require('./plugins/tailwind-plugin.cjs'),
+    ['docusaurus-lunr-search', {
+      languages: ['es', 'en'] // Necesario para que el buscador funcione en español
+    }]
+  ],
 
   markdown: {
     mermaid: true,
@@ -72,7 +77,7 @@ const config = {
         docs: {
           sidebarPath: './sidebars.js',
           // Descomentar si se quiere usar el versionado automático
-          lastVersion: 'current', // Convierte el curso actual en la versión por defecto
+          // lastVersion: 'current', // Convierte el curso actual en la versión por defecto
           /*versions: {
             current: {
               banner: 'none', // Apaga el molesto aviso de la parte superior
