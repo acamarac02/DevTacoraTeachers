@@ -39,6 +39,10 @@ Tienes que abrir tu `docusaurus.config.js` y editar el botón de la asignatura e
 
 ## Estrategia 2: Versionado Automático Global
 
+:::danger[¡Aviso sobre la gestión y el buscador!]
+Al usar esta estrategia, el proyecto se vuelve un poco más complejo de mantener. Además, debes tener en cuenta que el buscador local indexará los ficheros de **todas las versiones** generadas. Esto significa que cuando un alumno busque un término, le aparecerán resultados mezclados de cursos antiguos y del actual, lo cual puede generar bastante confusión.
+:::
+
 Docusaurus tiene un sistema nativo integrado de "versionado" (pensado originalmente para ir guardando versiones de programas informáticos como v1.0, v2.0...) que nosotros podemos aprovechar perfectamente para guardar nuestro histórico de "Cursos Académicos" sin romper manuales antiguos.
 
 Al usar este método, Docusaurus **congela** todo tu temario actual de golpe, guardándolo intacto como archivo histórico para los alumnos. Al mismo tiempo, te deja vía libre en tu carpeta base (`docs/`) para que rehagas apuntes para el nuevo curso.
